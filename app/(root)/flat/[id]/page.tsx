@@ -2,9 +2,9 @@ import { Container, FlatImage, Title } from "@/components/shared";
 import { prisma } from "@/prisma/prisma-client"
 import { notFound } from "next/navigation";
 
-export default async function FlatPage({ params: { id } }: { params: { id: string } }) {
-    // export default async function FlatPage({ params }: { params: { id: string } }) {
-    // const { id } = await params;
+// export default async function FlatPage({ params: { id } }: { params: { id: string } }) {
+export default async function FlatPage({ params }: { params: { id: string } }) {
+    const { id } = await params;
     const flat = await prisma.flat.findFirst({ where: { id: Number(id) } });
 
     if (!flat) {
